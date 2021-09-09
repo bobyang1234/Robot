@@ -51,5 +51,24 @@ namespace RobotTests
         {
             Assert.False(robot.CheckValidInput(input));
         }
+
+        [Theory]
+        [InlineData("NORTH", "WEST")]
+        [InlineData("WEST", "SOUTH")]
+        [InlineData("SOUTH", "EAST")]
+        [InlineData("EAST", "NORTH")]
+        public void LeftShouldWork(string input, string expected)
+        {
+            Assert.Equal(expected, robot.Left(input));
+        }
+
+        [Theory]
+        [InlineData("DSADF", "DSADF")]
+        [InlineData("DS2345ADsdfF", "DS2345ADsdfF")]
+        [InlineData("32345dsafd25", "32345dsafd25")]
+        public void LeftShouldFail(string input, string expected)
+        {
+            Assert.Equal(expected, robot.Left(input));
+        }
     }
 }
