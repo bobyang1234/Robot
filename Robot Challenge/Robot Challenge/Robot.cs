@@ -88,5 +88,55 @@ namespace Robot_Challenge
             }
             return input;
         }
+
+        public Robot Move(Robot robot)
+        {
+            switch (robot.current_orientation)
+            {
+                case "NORTH":
+                    if (robot.current_y_position == 5)
+                    {
+                        return robot;
+                    }
+                    else
+                    {
+                        robot.current_y_position += 1;
+                    }
+                    break;
+                case "EAST":
+                    if (robot.current_x_position == 5)
+                    {
+                        return robot;
+                    }
+                    else
+                    {
+                        robot.current_x_position += 1;
+                    }
+                    break;
+                case "SOUTH":
+                    if (robot.current_y_position == 0)
+                    {
+                        return robot;
+                    }
+                    else
+                    {
+                        robot.current_y_position -= 1;
+                    }
+                    break;
+                case "WEST":
+                    if (robot.current_x_position == 0)
+                    {
+                        return robot;
+                    }
+                    else
+                    {
+                        robot.current_x_position -= 1;
+                    }
+                    break;
+                default:
+                    return robot;
+            }
+            return robot;
+        }
     }
 }
