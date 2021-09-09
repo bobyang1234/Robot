@@ -65,5 +65,28 @@ namespace Robot_Challenge
                 return robot;
             }
         }
+
+        public string Right(string input)
+        {
+            switch (input)
+            {
+                case "NORTH":
+                    input = "EAST";
+                    break;
+                case "EAST":
+                    input = "SOUTH";
+                    break;
+                case "SOUTH":
+                    input = "WEST";
+                    break;
+                case "WEST":
+                    input = "NORTH";
+                    break;
+                default:
+                    return input;
+
+            }
+            return input;
+        }
     }
 }
