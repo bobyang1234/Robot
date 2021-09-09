@@ -135,5 +135,6 @@ namespace RobotTests
         {
             Assert.Equal(expected, robot.Right(input));
         }
+
     }
 }
