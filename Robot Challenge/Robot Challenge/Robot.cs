@@ -48,5 +48,22 @@ namespace Robot_Challenge
             }
             return input;
         }
+
+        public Robot Place(Robot robot, string input)
+        {
+            int i;
+            string[] input_array = input.Remove(0, 6).Split(',');
+            if (int.Parse(input_array[0]) > 5 || int.Parse(input_array[1]) > 5)
+            {
+                return robot;
+            }
+            else
+            {
+                robot.current_x_position = int.Parse(input_array[0]);
+                robot.current_y_position = int.Parse(input_array[1]);
+                robot.current_orientation = input_array[2].ToUpper();
+                return robot;
+            }
+        }
     }
 }
