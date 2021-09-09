@@ -116,5 +116,24 @@ namespace RobotTests
             Assert.Equal(expected_y, robot.Place(robot, input).current_y_position);
             Assert.Equal(expected_orientation, robot.Place(robot, input).current_orientation);
         }
+
+        [Theory]
+        [InlineData("NORTH", "EAST")]
+        [InlineData("EAST", "SOUTH")]
+        [InlineData("SOUTH", "WEST")]
+        [InlineData("WEST", "NORTH")]
+        public void RightShouldWork(string input, string expected)
+        {
+            Assert.Equal(expected, robot.Right(input));
+        }
+
+        [Theory]
+        [InlineData("DSADF", "DSADF")]
+        [InlineData("DS2345ADsdfF", "DS2345ADsdfF")]
+        [InlineData("32345dsafd25", "32345dsafd25")]
+        public void RightShouldFail(string input, string expected)
+        {
+            Assert.Equal(expected, robot.Right(input));
+        }
     }
 }
