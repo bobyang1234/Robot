@@ -136,5 +136,62 @@ namespace RobotTests
             Assert.Equal(expected, robot.Right(input));
         }
 
+        public static IEnumerable<object[]> TestRobotDataWorking =>
+        new List<object[]>
+        {
+            new object[] { new Robot { current_x_position = 0, current_y_position = 0, current_orientation = "NORTH" }, 1},
+            new object[] { new Robot { current_x_position = 4, current_y_position = 0, current_orientation = "WEST" }, 3},
+            new object[] { new Robot { current_x_position = 4, current_y_position = 0, current_orientation = "EAST" }, 5},
+            new object[] { new Robot { current_x_position = 0, current_y_position = 3, current_orientation = "SOUTH" }, 2},
+            new object[] { new Robot { current_x_position = 1, current_y_position = 1, current_orientation = "NORTH" }, 2},
+            new object[] { new Robot { current_x_position = 2, current_y_position = 2, current_orientation = "NORTH" }, 3},
+            new object[] { new Robot { current_x_position = 3, current_y_position = 3, current_orientation = "NORTH" }, 4},
+            new object[] { new Robot { current_x_position = 4, current_y_position = 4, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 5, current_y_position = 4, current_orientation = "NORTH" }, 5},
+        };
+
+        [Theory]
+        [MemberData(nameof(TestRobotDataWorking))]
+        public void MoveShouldWork(Robot robot, int expected_value)
+        {
+            robot = robot.Move(robot);
+            if (robot.current_orientation == "NORTH" || robot.current_orientation == "SOUTH")
+            {
+                Assert.Equal(expected_value, robot.current_y_position);
+            }
+            else
+            {
+                Assert.Equal(expected_value, robot.current_x_position);
+            }
+        }
+
+        public static IEnumerable<object[]> TestRobotDataFailing =>
+        new List<object[]>
+        {
+            new object[] { new Robot { current_x_position = 0, current_y_position = 5, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 0, current_y_position = 0, current_orientation = "WEST" }, 0},
+            new object[] { new Robot { current_x_position = 5, current_y_position = 0, current_orientation = "EAST" }, 5},
+            new object[] { new Robot { current_x_position = 0, current_y_position = 0, current_orientation = "SOUTH" }, 0},
+            new object[] { new Robot { current_x_position = 1, current_y_position = 5, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 2, current_y_position = 5, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 3, current_y_position = 5, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 4, current_y_position = 5, current_orientation = "NORTH" }, 5},
+            new object[] { new Robot { current_x_position = 5, current_y_position = 5, current_orientation = "NORTH" }, 5},
+        };
+
+        [Theory]
+        [MemberData(nameof(TestRobotDataWorking))]
+        public void MoveShouldFail(Robot robot, int expected_value)
+        {
+            robot = robot.Move(robot);
+            if (robot.current_orientation == "NORTH" || robot.current_orientation == "SOUTH")
+            {
+                Assert.Equal(expected_value, robot.current_y_position);
+            }
+            else
+            {
+                Assert.Equal(expected_value, robot.current_x_position);
+            }
+        }
     }
 }
