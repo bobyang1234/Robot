@@ -13,9 +13,9 @@ namespace Robot_Challenge
 {    
     public partial class Form1 : Form
     {
-        private List<string> commands;
-        private Robot robot;
-        private bool first_command;
+        public List<string> commands;
+        public Robot robot;
+        public bool first_command;
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Robot_Challenge
             first_command = true;
         }
 
-        private void SelectCommand(string input)
+        public void SelectCommand(string input)
         {
             Regex rgx = new Regex("^((MOVE)|(REPORT)|(LEFT)|(RIGHT))$", RegexOptions.IgnoreCase);
             //first call can't be move, report, left or right
@@ -47,7 +47,7 @@ namespace Robot_Challenge
                         robot = robot.Move(robot);
                         break;
                     case "REPORT":
-                        //need to implement report method
+                        txtbox_output.Text = Report(robot) + Environment.NewLine; 
                         break;
                     case "LEFT":
                         robot.current_orientation = robot.Left(robot.current_orientation);
@@ -65,6 +65,11 @@ namespace Robot_Challenge
             {
                 robot = robot.Place(robot, input);
             }
+        }
+
+        public string Report(Robot robot)
+        {
+            return $"{robot.current_x_position},{robot.current_y_position},{robot.current_orientation}";
         }
 
         private void btn_readinputs_Click(object sender, EventArgs e)
