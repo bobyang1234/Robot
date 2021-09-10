@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtbox_validcommand.Text" xml:space="preserve">
+    <value>1. Valid commands are either Place, left, right, move or report, they are not case sensitive
+
+2. There must be no spaces before or after each command
+
+3. Each command must be written on a new line, two commands in the same line is considered as invalid
+
+4. Random inputs are considered invalid
+
+5. Newlines with no inputs or spaces are invalid
+
+6. Place command must always have 1 space character after the word space, followed by no spacing for the rest of the command. If there is more than 1 space this is considered invalid
+
+7. Place commands with x and y coordinates less than 0 or greater than 5 is considered invalid
+
+8. There must be at least 1 valid place command for report to generate an output</value>
+  </data>
 </root>

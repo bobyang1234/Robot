@@ -87,6 +87,7 @@ namespace Robot_Challenge
         {
             commands.Clear();
             txtbox_output.Clear();
+            txtbox_invalidinputcommands.Clear();
             robot = new Robot();
             first_command = true;
             for (int i = 0; i < txtbox_input.Lines.Length; i++)
@@ -94,7 +95,18 @@ namespace Robot_Challenge
                 if(robot.CheckValidInput(txtbox_input.Lines[i]))
                 {
                     commands.Add(txtbox_input.Lines[i]);
-                }                      
+                }                     
+                else
+                {
+                    if(string.IsNullOrWhiteSpace(txtbox_input.Lines[i]))
+                    {
+                        txtbox_invalidinputcommands.AppendText($"You entered whitespace or no characters at line {i}, this is invalid" + Environment.NewLine);
+                    }
+                    else
+                    {
+                        txtbox_invalidinputcommands.AppendText($"{txtbox_input.Lines[i]} at line {i} is invalid" + Environment.NewLine);
+                    }                    
+                }
             }
             foreach (string value in commands)
             {
@@ -106,15 +118,34 @@ namespace Robot_Challenge
         private void btn_readfromfile_Click(object sender, EventArgs e)
         {
             filelines.Clear();
+            txtbox_input.Clear();
             txtbox_output.Clear();
+            txtbox_invalidinputcommands.Clear();
             robot = new Robot();
             first_command = true;
+            int i = 0;
             try
             {
                 filelines = file.ReadTextFile(txtbox_filelocation.Text);
                 foreach (string value in filelines)
                 {
-                    SelectCommand(value);
+                    if (robot.CheckValidInput(value))
+                    {
+                        txtbox_input.AppendText(value + Environment.NewLine);
+                        SelectCommand(value);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(value))
+                        {
+                            txtbox_invalidinputcommands.AppendText($"You entered whitespace or no characters at line {i}, this is invalid" + Environment.NewLine);
+                        }
+                        else
+                        {
+                            txtbox_invalidinputcommands.AppendText($"{value} at line {i} is invalid" + Environment.NewLine);
+                        }
+                    }
+                    i++;
                 }
             }
             catch (System.IO.FileNotFoundException)
