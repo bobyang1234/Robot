@@ -28,6 +28,7 @@ namespace Robot_Challenge
             filelines = new List<string>();
         }
 
+        //This method selects which robot command to call from the robot class based off the string input
         public void SelectCommand(string input)
         {
             Regex rgx = new Regex("^((MOVE)|(REPORT)|(LEFT)|(RIGHT))$", RegexOptions.IgnoreCase);
@@ -76,6 +77,7 @@ namespace Robot_Challenge
             return $"{robot.current_x_position},{robot.current_y_position},{robot.current_orientation}";
         }
 
+        //Read input textbox
         private void btn_readinputs_Click(object sender, EventArgs e)
         {
             commands.Clear();
@@ -93,10 +95,11 @@ namespace Robot_Challenge
             }
         }
 
+        //Read file
         private void btn_readfromfile_Click(object sender, EventArgs e)
         {
             filelines.Clear();
-            txtbox_output.Clear();
+            txtbox_output.Clear();            
             try
             {
                 filelines = file.ReadTextFile(txtbox_filelocation.Text);
