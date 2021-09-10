@@ -50,8 +50,7 @@ namespace Robot_Challenge
         }
 
         public Robot Place(Robot robot, string input)
-        {
-            int i;
+        {            
             string[] input_array = input.Remove(0, 6).Split(',');
             if (int.Parse(input_array[0]) > 5 || int.Parse(input_array[1]) > 5)
             {
