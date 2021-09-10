@@ -32,13 +32,13 @@ namespace Robot_Challenge
             {
                 return;
             }
-            //first call is a place command always
+            //first call must be a place
             else if (first_command)
             {
                 robot = robot.Place(robot, input);
                 first_command = false;
             }
-            //not first command, either move, report, left or right
+            //not first call, but move, report, left or right command
             else if (rgx.IsMatch(input) && !first_command)
             {
                 switch (input.ToUpper())
@@ -47,7 +47,7 @@ namespace Robot_Challenge
                         robot = robot.Move(robot);
                         break;
                     case "REPORT":
-                        txtbox_output.Text = Report(robot) + Environment.NewLine; 
+                        txtbox_output.AppendText(Report(robot) + Environment.NewLine); 
                         break;
                     case "LEFT":
                         robot.current_orientation = robot.Left(robot.current_orientation);
@@ -56,11 +56,11 @@ namespace Robot_Challenge
                         robot.current_orientation = robot.Right(robot.current_orientation);
                         break;
                     default: 
-                        break;
+                        return;
                 }
 
             }
-            //not a first call but a place command
+            //not a first call but a place command            
             else
             {
                 robot = robot.Place(robot, input);
@@ -75,9 +75,13 @@ namespace Robot_Challenge
         private void btn_readinputs_Click(object sender, EventArgs e)
         {
             commands.Clear();
+            txtbox_output.Clear();
             for (int i = 0; i < txtbox_input.Lines.Length; i++)
             {
-                commands.Add(txtbox_input.Lines[i]);
+                if(robot.CheckValidInput(txtbox_input.Lines[i]))
+                {
+                    commands.Add(txtbox_input.Lines[i]);
+                }                
             }
             foreach (string value in commands)
             {
