@@ -14,14 +14,18 @@ namespace Robot_Challenge
     public partial class Form1 : Form
     {
         public List<string> commands;
+        public List<string> filelines;
         public Robot robot;
         public bool first_command;
+        public ReadFile file;
         public Form1()
         {
             InitializeComponent();
             commands = new List<string>();
             robot = new Robot();
             first_command = true;
+            file = new ReadFile();
+            filelines = new List<string>();
         }
 
         public void SelectCommand(string input)
@@ -91,7 +95,24 @@ namespace Robot_Challenge
 
         private void btn_readfromfile_Click(object sender, EventArgs e)
         {
-
+            filelines.Clear();
+            txtbox_output.Clear();
+            try
+            {
+                filelines = file.ReadTextFile(txtbox_filelocation.Text);
+                foreach (string value in filelines)
+                {
+                    SelectCommand(value);
+                }
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                txtbox_filelocation.Text = "Please enter a valid file location path";
+            }
+            catch (System.ArgumentException)
+            {
+                txtbox_filelocation.Text = "Please enter a valid file location path";
+            }
         }
     }
 }
