@@ -1,0 +1,10 @@
+D:\C#\Robot\Robot Challenge\Robot Challenge\bin\Debug\Robot Challenge.exe.config
+D:\C#\Robot\Robot Challenge\Robot Challenge\bin\Debug\Robot Challenge.exe
+D:\C#\Robot\Robot Challenge\Robot Challenge\bin\Debug\Robot Challenge.pdb
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot Challenge.csproj.AssemblyReference.cache
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot_Challenge.Form1.resources
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot_Challenge.Properties.Resources.resources
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot Challenge.csproj.GenerateResource.cache
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot Challenge.csproj.CoreCompileInputs.cache
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot Challenge.exe
+D:\C#\Robot\Robot Challenge\Robot Challenge\obj\Debug\Robot Challenge.pdb

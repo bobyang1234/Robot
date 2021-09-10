@@ -1,0 +1,20 @@
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.abstractions.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.runner.reporters.net452.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.runner.utility.net452.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\RobotTests.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\RobotTests.pdb
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\Robot Challenge.exe
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.assert.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.core.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.execution.desktop.dll
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\Robot Challenge.pdb
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\Robot Challenge.exe.config
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.assert.xml
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.core.xml
+D:\C#\Robot\Robot Challenge\RobotTests\bin\Debug\xunit.execution.desktop.xml
+D:\C#\Robot\Robot Challenge\RobotTests\obj\Debug\RobotTests.csproj.AssemblyReference.cache
+D:\C#\Robot\Robot Challenge\RobotTests\obj\Debug\RobotTests.csproj.CoreCompileInputs.cache
+D:\C#\Robot\Robot Challenge\RobotTests\obj\Debug\RobotTests.csproj.CopyComplete
+D:\C#\Robot\Robot Challenge\RobotTests\obj\Debug\RobotTests.dll
+D:\C#\Robot\Robot Challenge\RobotTests\obj\Debug\RobotTests.pdb
