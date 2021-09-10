@@ -21,8 +21,7 @@ namespace Robot_Challenge
         public Form1()
         {
             InitializeComponent();
-            commands = new List<string>();
-            robot = new Robot();
+            commands = new List<string>();            
             first_command = true;
             file = new ReadFile();
             filelines = new List<string>();
@@ -32,13 +31,14 @@ namespace Robot_Challenge
         public void SelectCommand(string input)
         {
             Regex rgx = new Regex("^((MOVE)|(REPORT)|(LEFT)|(RIGHT))$", RegexOptions.IgnoreCase);
+            Regex place = new Regex("^PLACE [0-5],[0-5],(north|south|east|west)$", RegexOptions.IgnoreCase);
             //first call can't be move, report, left or right
             if (rgx.IsMatch(input) && first_command)
             {
                 return;
             }
             //first call must be a place
-            else if (first_command)
+            else if (place.IsMatch(input) && first_command)
             {
                 robot = robot.Place(robot, input);
                 first_command = false;
@@ -66,9 +66,14 @@ namespace Robot_Challenge
 
             }
             //not a first call but a place command            
-            else
+            else if(place.IsMatch(input) && !first_command)
             {
                 robot = robot.Place(robot, input);
+            }
+            //do nothing if nothing matches
+            else
+            {                
+                return;
             }
         }
 
@@ -82,12 +87,14 @@ namespace Robot_Challenge
         {
             commands.Clear();
             txtbox_output.Clear();
+            robot = new Robot();
+            first_command = true;
             for (int i = 0; i < txtbox_input.Lines.Length; i++)
             {
                 if(robot.CheckValidInput(txtbox_input.Lines[i]))
                 {
                     commands.Add(txtbox_input.Lines[i]);
-                }                
+                }                      
             }
             foreach (string value in commands)
             {
@@ -99,7 +106,9 @@ namespace Robot_Challenge
         private void btn_readfromfile_Click(object sender, EventArgs e)
         {
             filelines.Clear();
-            txtbox_output.Clear();            
+            txtbox_output.Clear();
+            robot = new Robot();
+            first_command = true;
             try
             {
                 filelines = file.ReadTextFile(txtbox_filelocation.Text);

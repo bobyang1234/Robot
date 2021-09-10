@@ -20,7 +20,7 @@ namespace Robot_Challenge
         //Valid inputs will return true, else returns false
         public bool CheckValidInput(string input)
         {
-            Regex rgx = new Regex("^((MOVE)|(REPORT)|(LEFT)|(RIGHT)|(PLACE [0-9]+,[0-9]+,(north|south|east|west)))$", RegexOptions.IgnoreCase);
+            Regex rgx = new Regex("^((MOVE)|(REPORT)|(LEFT)|(RIGHT)|(PLACE [0-5],[0-5],(north|south|east|west)))$", RegexOptions.IgnoreCase);
             if (rgx.IsMatch(input))
             {
                 return true;
