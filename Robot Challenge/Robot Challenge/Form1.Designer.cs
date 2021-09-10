@@ -29,6 +29,7 @@ namespace Robot_Challenge
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btn_readfromfile = new System.Windows.Forms.Button();
             this.btn_readinputs = new System.Windows.Forms.Button();
             this.txtbox_filelocation = new System.Windows.Forms.TextBox();
@@ -37,6 +38,10 @@ namespace Robot_Challenge
             this.txtbox_input = new System.Windows.Forms.TextBox();
             this.lbl_outputcommands = new System.Windows.Forms.Label();
             this.lbl_inputcommands = new System.Windows.Forms.Label();
+            this.txtbox_invalidinputcommands = new System.Windows.Forms.TextBox();
+            this.lbl_invalidinputcommands = new System.Windows.Forms.Label();
+            this.lbl_validcommand = new System.Windows.Forms.Label();
+            this.txtbox_validcommand = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_readfromfile
@@ -63,7 +68,7 @@ namespace Robot_Challenge
             // 
             this.txtbox_filelocation.Location = new System.Drawing.Point(36, 506);
             this.txtbox_filelocation.Name = "txtbox_filelocation";
-            this.txtbox_filelocation.Size = new System.Drawing.Size(692, 20);
+            this.txtbox_filelocation.Size = new System.Drawing.Size(929, 20);
             this.txtbox_filelocation.TabIndex = 13;
             // 
             // lbl_filelocation
@@ -78,11 +83,11 @@ namespace Robot_Challenge
             // 
             // txtbox_output
             // 
-            this.txtbox_output.Location = new System.Drawing.Point(411, 55);
+            this.txtbox_output.Location = new System.Drawing.Point(601, 55);
             this.txtbox_output.Multiline = true;
             this.txtbox_output.Name = "txtbox_output";
             this.txtbox_output.ReadOnly = true;
-            this.txtbox_output.Size = new System.Drawing.Size(318, 392);
+            this.txtbox_output.Size = new System.Drawing.Size(169, 392);
             this.txtbox_output.TabIndex = 11;
             // 
             // txtbox_input
@@ -90,14 +95,14 @@ namespace Robot_Challenge
             this.txtbox_input.Location = new System.Drawing.Point(33, 55);
             this.txtbox_input.Multiline = true;
             this.txtbox_input.Name = "txtbox_input";
-            this.txtbox_input.Size = new System.Drawing.Size(318, 392);
+            this.txtbox_input.Size = new System.Drawing.Size(263, 392);
             this.txtbox_input.TabIndex = 10;
             // 
             // lbl_outputcommands
             // 
             this.lbl_outputcommands.AutoSize = true;
             this.lbl_outputcommands.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_outputcommands.Location = new System.Drawing.Point(408, 18);
+            this.lbl_outputcommands.Location = new System.Drawing.Point(598, 18);
             this.lbl_outputcommands.Name = "lbl_outputcommands";
             this.lbl_outputcommands.Size = new System.Drawing.Size(134, 18);
             this.lbl_outputcommands.TabIndex = 9;
@@ -113,11 +118,54 @@ namespace Robot_Challenge
             this.lbl_inputcommands.TabIndex = 8;
             this.lbl_inputcommands.Text = "Input Commands";
             // 
+            // txtbox_invalidinputcommands
+            // 
+            this.txtbox_invalidinputcommands.Location = new System.Drawing.Point(320, 55);
+            this.txtbox_invalidinputcommands.Multiline = true;
+            this.txtbox_invalidinputcommands.Name = "txtbox_invalidinputcommands";
+            this.txtbox_invalidinputcommands.ReadOnly = true;
+            this.txtbox_invalidinputcommands.Size = new System.Drawing.Size(258, 392);
+            this.txtbox_invalidinputcommands.TabIndex = 16;
+            // 
+            // lbl_invalidinputcommands
+            // 
+            this.lbl_invalidinputcommands.AutoSize = true;
+            this.lbl_invalidinputcommands.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_invalidinputcommands.Location = new System.Drawing.Point(317, 18);
+            this.lbl_invalidinputcommands.Name = "lbl_invalidinputcommands";
+            this.lbl_invalidinputcommands.Size = new System.Drawing.Size(165, 18);
+            this.lbl_invalidinputcommands.TabIndex = 17;
+            this.lbl_invalidinputcommands.Text = "Invalid Input Commands";
+            // 
+            // lbl_validcommand
+            // 
+            this.lbl_validcommand.AutoSize = true;
+            this.lbl_validcommand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_validcommand.Location = new System.Drawing.Point(796, 23);
+            this.lbl_validcommand.Name = "lbl_validcommand";
+            this.lbl_validcommand.Size = new System.Drawing.Size(182, 18);
+            this.lbl_validcommand.TabIndex = 19;
+            this.lbl_validcommand.Text = "What is a valid command?";
+            // 
+            // txtbox_validcommand
+            // 
+            this.txtbox_validcommand.Location = new System.Drawing.Point(799, 55);
+            this.txtbox_validcommand.Multiline = true;
+            this.txtbox_validcommand.Name = "txtbox_validcommand";
+            this.txtbox_validcommand.ReadOnly = true;
+            this.txtbox_validcommand.Size = new System.Drawing.Size(179, 413);
+            this.txtbox_validcommand.TabIndex = 20;
+            this.txtbox_validcommand.Text = resources.GetString("txtbox_validcommand.Text");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 573);
+            this.ClientSize = new System.Drawing.Size(1004, 616);
+            this.Controls.Add(this.txtbox_validcommand);
+            this.Controls.Add(this.lbl_validcommand);
+            this.Controls.Add(this.lbl_invalidinputcommands);
+            this.Controls.Add(this.txtbox_invalidinputcommands);
             this.Controls.Add(this.btn_readfromfile);
             this.Controls.Add(this.btn_readinputs);
             this.Controls.Add(this.txtbox_filelocation);
@@ -143,6 +191,10 @@ namespace Robot_Challenge
         private System.Windows.Forms.TextBox txtbox_input;
         private System.Windows.Forms.Label lbl_outputcommands;
         private System.Windows.Forms.Label lbl_inputcommands;
+        private System.Windows.Forms.TextBox txtbox_invalidinputcommands;
+        private System.Windows.Forms.Label lbl_invalidinputcommands;
+        private System.Windows.Forms.Label lbl_validcommand;
+        private System.Windows.Forms.TextBox txtbox_validcommand;
     }
 }
 

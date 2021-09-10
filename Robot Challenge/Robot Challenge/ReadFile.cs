@@ -11,19 +11,11 @@ namespace Robot_Challenge
     {
         Robot robot = new Robot();
 
-        //This method takes a string which represents the path of the file you are accessing
-        //and returns a list of string containing valid commands 
+        //This method takes a string which represents the path of the file you are accessing and returns a list of string        
         public List<string> ReadTextFile(string path)
-        {
-            List<string> output = new List<string>();
+        {            
             var lines = File.ReadAllLines(@path);
-            for (int i = 0; i < lines.Length; i++)
-            {
-                if (robot.CheckValidInput(lines[i]))
-                {
-                    output.Add(lines[i]);
-                }
-            }            
+            List<string> output = new List<string>(lines);                 
             return output;
         }
 
